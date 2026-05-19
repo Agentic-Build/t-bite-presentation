@@ -1,6 +1,6 @@
 import { createViteConfig } from '@open-slide/core/vite';
 import { build, mergeConfig } from 'vite';
-import { copyFile, writeFile } from 'node:fs/promises';
+import { copyFile, mkdir, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const cwd = process.cwd();
@@ -37,7 +37,24 @@ const pagesConfig = mergeConfig(openSlideConfig, {
 
 await build(pagesConfig);
 
-await copyFile(path.join(outDir, 'index.html'), path.join(outDir, '404.html'));
+const indexHtml = path.join(outDir, 'index.html');
+
+await copyFile(indexHtml, path.join(outDir, '404.html'));
 await writeFile(path.join(outDir, '.nojekyll'), '');
+
+const slidesDir = path.join(cwd, 'slides');
+const slideEntries = await readdir(slidesDir, { withFileTypes: true });
+
+for (const entry of slideEntries) {
+  if (!entry.isDirectory()) continue;
+
+  const slideRoute = path.join(outDir, 's', entry.name);
+  const presenterRoute = path.join(slideRoute, 'presenter');
+
+  await mkdir(slideRoute, { recursive: true });
+  await mkdir(presenterRoute, { recursive: true });
+  await copyFile(indexHtml, path.join(slideRoute, 'index.html'));
+  await copyFile(indexHtml, path.join(presenterRoute, 'index.html'));
+}
 
 console.log(`Built GitHub Pages artifact with base ${pagesBase}`);
