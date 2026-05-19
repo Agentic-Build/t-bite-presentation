@@ -7,42 +7,42 @@ import merchantMenus from './assets/merchant-menus.png';
 
 export const design: DesignSystem = {
   palette: {
-    bg: '#081018',
-    text: '#f7fafc',
-    accent: '#41d0a4',
+    bg: '#f8fafc',
+    text: '#0f172a',
+    accent: '#dc2626',
   },
   fonts: {
-    display: '"Inter", "Noto Sans TC", "PingFang TC", system-ui, sans-serif',
-    body: '"Inter", "Noto Sans TC", "PingFang TC", system-ui, sans-serif',
+    display: '"Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif',
+    body: '"Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif',
   },
   typeScale: {
-    hero: 142,
+    hero: 116,
     body: 34,
   },
-  radius: 8,
+  radius: 18,
 };
 
 const color = {
   bg: design.palette.bg,
   text: design.palette.text,
   accent: design.palette.accent,
-  panel: '#111c26',
-  panel2: '#162432',
-  panel3: '#1c3041',
-  line: 'rgba(247,250,252,0.14)',
-  lineStrong: 'rgba(247,250,252,0.28)',
-  muted: '#8da0b8',
-  soft: '#cbd8e6',
-  green: '#41d0a4',
-  blue: '#61a7ff',
+  panel: '#ffffff',
+  panel2: '#f1f5f9',
+  panel3: '#fee2e2',
+  line: '#e2e8f0',
+  lineStrong: '#cbd5e1',
+  muted: '#64748b',
+  soft: '#334155',
+  green: '#10b981',
+  blue: '#0ea5e9',
   gold: '#f2bc4b',
-  coral: '#ff7468',
-  violet: '#b695ff',
-  white: '#f7fafc',
+  coral: '#e11d48',
+  violet: '#8b5cf6',
+  white: '#ffffff',
 };
 
 const font = {
-  mono: '"SF Mono", "Cascadia Code", ui-monospace, Menlo, monospace',
+  mono: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
 };
 
 const fill: CSSProperties = {
@@ -61,9 +61,9 @@ const backgroundGrid: CSSProperties = {
   position: 'absolute',
   inset: 0,
   backgroundImage:
-    'linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)',
+    'linear-gradient(rgba(226,232,240,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(226,232,240,0.7) 1px, transparent 1px)',
   backgroundSize: '96px 96px',
-  opacity: 0.42,
+  opacity: 0.28,
 };
 
 const leftRail: CSSProperties = {
@@ -72,7 +72,7 @@ const leftRail: CSSProperties = {
   top: 0,
   bottom: 0,
   width: 18,
-  background: `linear-gradient(180deg, ${color.green}, ${color.blue} 52%, ${color.gold})`,
+  background: `linear-gradient(180deg, ${color.accent}, #be123c 62%, ${color.gold})`,
 };
 
 const diagonalBand: CSSProperties = {
@@ -82,8 +82,9 @@ const diagonalBand: CSSProperties = {
   width: 900,
   height: 1220,
   transform: 'skewX(-14deg)',
-  background: '#111a25',
+  background: '#ffffff',
   borderLeft: `1px solid ${color.line}`,
+  opacity: 0.7,
 };
 
 const Header = ({ index, label }: { index: string; label: string }) => (
@@ -122,9 +123,9 @@ const Kicker = ({ children, tone = color.green }: { children: ReactNode; tone?: 
   <div
     style={{
       color: tone,
-      fontFamily: font.mono,
       fontSize: 22,
       fontWeight: 780,
+      letterSpacing: '0.18em',
       textTransform: 'uppercase',
       marginBottom: 18,
     }}
@@ -174,7 +175,7 @@ const Card = ({
       border: `1px solid ${color.line}`,
       padding: 28,
       boxSizing: 'border-box',
-      boxShadow: '0 20px 64px rgba(0,0,0,0.24)',
+      boxShadow: '0 1px 2px 0 rgb(15 23 42 / 0.06)',
     }}
   >
     <div style={{ width: 58, height: 6, borderRadius: 8, background: tone, marginBottom: 20 }} />
@@ -194,9 +195,8 @@ const Pill = ({ children, tone = color.green }: { children: ReactNode; tone?: st
       color: tone,
       background: `${tone}18`,
       border: `1px solid ${tone}88`,
-      fontFamily: font.mono,
       fontSize: 18,
-      fontWeight: 760,
+      fontWeight: 800,
       whiteSpace: 'nowrap',
     }}
   >
@@ -334,13 +334,13 @@ const ImageFrame = ({ src, title }: { src: string; title: string }) => (
       borderRadius: 8,
       background: '#f7fafc',
       border: `1px solid ${color.lineStrong}`,
-      boxShadow: '0 24px 70px rgba(0,0,0,0.32)',
+      boxShadow: '0 1px 2px 0 rgb(15 23 42 / 0.06)',
     }}
   >
     <figcaption
       style={{
         height: 38,
-        background: '#0f1722',
+        background: '#f1f5f9',
         color: color.soft,
         display: 'flex',
         alignItems: 'center',
@@ -568,6 +568,7 @@ const Decisions: Page = () => (
 
 export const meta: SlideMeta = {
   title: 'T-Bite Cloud Native Ready',
+  theme: 't-bite-enterprise',
 };
 
 export default [

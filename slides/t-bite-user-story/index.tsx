@@ -16,46 +16,46 @@ import merchantMenus from './assets/merchant-menus.png';
 
 export const design: DesignSystem = {
   palette: {
-    bg: '#0b0f14',
-    text: '#f5f7fb',
-    accent: '#15b8a6',
+    bg: '#f8fafc',
+    text: '#0f172a',
+    accent: '#dc2626',
   },
   fonts: {
-    display: '"Inter", "Noto Sans TC", "PingFang TC", system-ui, sans-serif',
-    body: '"Inter", "Noto Sans TC", "PingFang TC", system-ui, sans-serif',
+    display: '"Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif',
+    body: '"Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif',
   },
   typeScale: {
-    hero: 132,
-    body: 32,
+    hero: 116,
+    body: 34,
   },
-  radius: 8,
+  radius: 18,
 };
 
 const palette = {
   bg: design.palette.bg,
   text: design.palette.text,
   accent: design.palette.accent,
-  panel: '#111821',
-  panel2: '#16202c',
-  panel3: '#1d2a38',
-  ink: '#f5f7fb',
-  soft: '#c9d4e5',
-  muted: '#8fa0b8',
-  line: 'rgba(245,247,251,0.12)',
-  lineStrong: 'rgba(245,247,251,0.26)',
-  cyan: '#15b8a6',
-  blue: '#5b9cff',
-  amber: '#f4b740',
-  green: '#55d187',
-  coral: '#ff6b66',
-  violet: '#b18cff',
-  slate: '#65758d',
+  panel: '#ffffff',
+  panel2: '#f1f5f9',
+  panel3: '#fee2e2',
+  ink: '#0f172a',
+  soft: '#334155',
+  muted: '#64748b',
+  line: '#e2e8f0',
+  lineStrong: '#cbd5e1',
+  cyan: '#dc2626',
+  blue: '#0ea5e9',
+  amber: '#f59e0b',
+  green: '#10b981',
+  coral: '#e11d48',
+  violet: '#8b5cf6',
+  slate: '#64748b',
 };
 
 const font = {
   display: design.fonts.display,
   body: design.fonts.body,
-  mono: '"SF Mono", "Cascadia Code", ui-monospace, Menlo, monospace',
+  mono: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
 };
 
 const fill: CSSProperties = {
@@ -74,9 +74,9 @@ const grid: CSSProperties = {
   position: 'absolute',
   inset: 0,
   backgroundImage:
-    'linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)',
+    'linear-gradient(rgba(226,232,240,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(226,232,240,0.7) 1px, transparent 1px)',
   backgroundSize: '96px 96px',
-  opacity: 0.55,
+  opacity: 0.25,
 };
 
 const diagonal: CSSProperties = {
@@ -86,8 +86,9 @@ const diagonal: CSSProperties = {
   width: 860,
   height: 1080,
   transform: 'skewX(-14deg)',
-  background: '#121b28',
+  background: '#ffffff',
   borderLeft: `1px solid ${palette.line}`,
+  opacity: 0.7,
 };
 
 const Header = ({ page, label }: { page: string; label: string }) => (
@@ -135,9 +136,9 @@ const Kicker = ({ children, color = palette.cyan }: { children: ReactNode; color
   <div
     style={{
       color,
-      fontFamily: font.mono,
       fontSize: 22,
-      fontWeight: 760,
+      fontWeight: 800,
+      letterSpacing: '0.18em',
       textTransform: 'uppercase',
       marginBottom: 18,
     }}
@@ -188,12 +189,12 @@ const Card = ({
   <div
     style={{
       minHeight,
-      borderRadius: 8,
+      borderRadius: 'var(--osd-radius)',
       background: palette.panel,
       border: `1px solid ${palette.line}`,
       boxSizing: 'border-box',
       padding: 26,
-      boxShadow: '0 18px 44px rgba(0,0,0,0.22)',
+      boxShadow: '0 1px 2px 0 rgb(15 23 42 / 0.06)',
     }}
   >
     <div style={{ width: 54, height: 6, borderRadius: 8, background: color, marginBottom: 18 }} />
@@ -242,15 +243,15 @@ const ImageFrame = ({
       borderRadius: 8,
       overflow: 'hidden',
       border: `1px solid ${palette.line}`,
-      background: '#eef2f7',
-      boxShadow: '0 26px 70px rgba(0,0,0,0.28)',
+      background: '#ffffff',
+      boxShadow: '0 1px 2px 0 rgb(15 23 42 / 0.06)',
     }}
   >
     {title ? (
       <figcaption
         style={{
           height: 44,
-          background: '#111827',
+          background: '#f1f5f9',
           color: palette.soft,
           display: 'flex',
           alignItems: 'center',
@@ -883,6 +884,7 @@ const Closing: Page = () => (
 
 export const meta: SlideMeta = {
   title: 'T-Bite User Story',
+  theme: 't-bite-enterprise',
 };
 
 export default [

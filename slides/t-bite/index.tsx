@@ -3,48 +3,48 @@ import type { CSSProperties, ReactNode } from 'react';
 
 export const design: DesignSystem = {
   palette: {
-    bg: '#07111f',
-    text: '#eef6ff',
-    accent: '#31d6c8',
+    bg: '#f8fafc',
+    text: '#0f172a',
+    accent: '#dc2626',
   },
   fonts: {
-    display: '"Inter", "Noto Sans TC", "PingFang TC", system-ui, sans-serif',
-    body: '"Inter", "Noto Sans TC", "PingFang TC", system-ui, sans-serif',
+    display: '"Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif',
+    body: '"Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif',
   },
   typeScale: {
-    hero: 156,
+    hero: 116,
     body: 34,
   },
-  radius: 28,
+  radius: 18,
 };
 
 const palette = {
   bg: design.palette.bg,
   text: design.palette.text,
   accent: design.palette.accent,
-  navy: '#07111f',
-  surface: '#0d1b2f',
-  surface2: '#102640',
-  surface3: '#153554',
-  line: 'rgba(238,246,255,0.14)',
-  lineStrong: 'rgba(238,246,255,0.28)',
-  muted: '#9db2c9',
-  soft: '#cfe1f4',
-  cyan: '#31d6c8',
-  blue: '#62a8ff',
-  amber: '#ffca6a',
-  rose: '#ff7b9c',
-  green: '#6ee7a8',
-  purple: '#a78bfa',
-  admin: '#ffca6a',
-  employee: '#31d6c8',
-  vendor: '#62a8ff',
+  navy: '#0f172a',
+  surface: '#ffffff',
+  surface2: '#f1f5f9',
+  surface3: '#fee2e2',
+  line: '#e2e8f0',
+  lineStrong: '#cbd5e1',
+  muted: '#64748b',
+  soft: '#334155',
+  cyan: '#dc2626',
+  blue: '#0ea5e9',
+  amber: '#fbbf24',
+  rose: '#e11d48',
+  green: '#10b981',
+  purple: '#8b5cf6',
+  admin: '#f59e0b',
+  employee: '#dc2626',
+  vendor: '#0ea5e9',
 };
 
 const font = {
   body: design.fonts.body,
   display: design.fonts.display,
-  mono: '"SF Mono", "Cascadia Code", ui-monospace, Menlo, monospace',
+  mono: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
 };
 
 const fill: CSSProperties = {
@@ -55,15 +55,16 @@ const fill: CSSProperties = {
   color: 'var(--osd-text)',
   fontFamily: 'var(--osd-font-body)',
   boxSizing: 'border-box',
+  overflow: 'hidden',
 };
 
 const gridBg: CSSProperties = {
   position: 'absolute',
   inset: 0,
   backgroundImage:
-    'linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)',
-  backgroundSize: '80px 80px',
-  opacity: 0.9,
+    'linear-gradient(rgba(226,232,240,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(226,232,240,0.7) 1px, transparent 1px)',
+  backgroundSize: '96px 96px',
+  opacity: 0.28,
 };
 
 const glow: CSSProperties = {
@@ -71,7 +72,7 @@ const glow: CSSProperties = {
   width: 680,
   height: 680,
   borderRadius: 999,
-  background: 'radial-gradient(circle, rgba(49,214,200,0.23), rgba(49,214,200,0) 66%)',
+  background: 'transparent',
   right: -210,
   top: -180,
 };
@@ -96,7 +97,7 @@ const PageShell = ({ children, label }: { children: ReactNode; label?: string })
         fontFamily: font.mono,
       }}
     >
-      <span>T-bite · Cloud Native Final Project</span>
+      <span>T-Bite · Corporate Catering</span>
       <span>{label ?? 'Corporate Catering System'}</span>
     </div>
     <div style={{ position: 'relative', zIndex: 1 }}>{children}</div>
@@ -107,8 +108,8 @@ const Eyebrow = ({ children, color = palette.cyan }: { children: ReactNode; colo
   <div
     style={{
       color,
-      fontFamily: font.mono,
       fontSize: 24,
+      fontWeight: 800,
       letterSpacing: '0.18em',
       textTransform: 'uppercase',
       marginBottom: 24,
@@ -125,7 +126,7 @@ const Title = ({ children, width = 1320 }: { children: ReactNode; width?: number
       fontSize: 76,
       lineHeight: 1.06,
       fontWeight: 860,
-      letterSpacing: '-0.045em',
+      letterSpacing: 0,
       margin: 0,
       maxWidth: width,
     }}
@@ -142,7 +143,7 @@ const Lead = ({ children, width = 1180 }: { children: ReactNode; width?: number 
       color: palette.soft,
       fontSize: 34,
       lineHeight: 1.48,
-      letterSpacing: '-0.015em',
+      letterSpacing: 0,
     }}
   >
     {children}
@@ -162,11 +163,11 @@ const Card = ({
 }) => (
   <div
     style={{
-      background: 'linear-gradient(180deg, rgba(255,255,255,0.085), rgba(255,255,255,0.035))',
+      background: '#ffffff',
       border: `1px solid ${palette.line}`,
       borderRadius: 'var(--osd-radius)',
       padding: 34,
-      boxShadow: '0 24px 80px rgba(0,0,0,0.22)',
+      boxShadow: '0 1px 2px 0 rgb(15 23 42 / 0.06)',
       minHeight: 158,
     }}
   >
@@ -188,8 +189,8 @@ const Pill = ({ children, color = palette.cyan }: { children: ReactNode; color?:
       borderRadius: 999,
       padding: '12px 20px',
       fontSize: 23,
-      fontWeight: 720,
-      letterSpacing: '0.02em',
+      fontWeight: 800,
+      letterSpacing: 0,
     }}
   >
     {children}
@@ -221,7 +222,7 @@ const FlowStep = ({ no, title, note, color }: { no: string; title: string; note:
       style={{
         flex: 1,
         borderRadius: 26,
-        background: 'rgba(255,255,255,0.055)',
+        background: '#ffffff',
         border: `1px solid ${palette.line}`,
         padding: '22px 26px',
       }}
@@ -260,7 +261,7 @@ const ArchBox = ({ title, note, x, y, w, color }: { title: string; note: string;
       width: w,
       minHeight: 128,
       borderRadius: 28,
-      background: 'linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.045))',
+      background: '#ffffff',
       border: `1px solid ${color}88`,
       padding: 26,
       boxSizing: 'border-box',
@@ -323,12 +324,12 @@ const Cover: Page = () => (
           fontFamily: 'var(--osd-font-display)',
           fontSize: 'var(--osd-size-hero)',
           lineHeight: 0.92,
-          letterSpacing: '-0.075em',
+          letterSpacing: 0,
           margin: 0,
           fontWeight: 900,
         }}
       >
-        T-bite
+        T-Bite
       </h1>
       <div style={{ marginTop: 38, fontSize: 48, color: palette.soft, fontWeight: 620 }}>Enterprise Corporate Catering System</div>
       <div style={{ marginTop: 54, display: 'flex', gap: 18 }}>
@@ -340,21 +341,41 @@ const Cover: Page = () => (
     <div
       style={{
         position: 'absolute',
-        right: 150,
-        bottom: 140,
-        width: 450,
-        height: 450,
-        borderRadius: 50,
-        border: `1px solid ${palette.lineStrong}`,
-        background: 'linear-gradient(145deg, rgba(49,214,200,0.14), rgba(98,168,255,0.08))',
-        display: 'grid',
-        placeItems: 'center',
-        boxShadow: '0 40px 130px rgba(0,0,0,0.35)',
+        right: 260,
+        bottom: 132,
+        width: 380,
+        borderRadius: 'var(--osd-radius)',
+        border: `1px solid ${palette.line}`,
+        background: '#ffffff',
+        padding: 30,
+        boxShadow: '0 12px 28px -8px rgb(15 23 42 / 0.18), 0 4px 10px -4px rgb(15 23 42 / 0.1)',
       }}
     >
-      <div style={{ textAlign: 'center' }}>
-        <div style={{ fontSize: 86, fontWeight: 900 }}>餐</div>
-        <div style={{ marginTop: 20, color: palette.muted, fontSize: 26, fontFamily: font.mono }}>workflow / cloud / audit</div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+        <div
+          style={{
+            position: 'relative',
+            width: 58,
+            height: 58,
+            borderRadius: 22,
+            background: 'linear-gradient(135deg, #ef4444, #be123c)',
+            color: '#ffffff',
+            display: 'grid',
+            placeItems: 'center',
+            fontSize: 32,
+            fontWeight: 900,
+          }}
+        >
+          T
+          <span style={{ position: 'absolute', right: -4, bottom: -4, width: 16, height: 16, borderRadius: 999, background: '#fbbf24', border: '3px solid #ffffff' }} />
+        </div>
+        <div>
+          <div style={{ color: palette.text, fontSize: 34, fontWeight: 900 }}>T-Bite<span style={{ color: palette.accent }}>.</span></div>
+          <div style={{ marginTop: 5, color: palette.muted, fontSize: 13, fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase' }}>Corporate Catering</div>
+        </div>
+      </div>
+        <div style={{ marginTop: 24, color: palette.soft, fontSize: 24, lineHeight: 1.36 }}>
+        多角色訂餐、取餐驗證、稽核與對帳，使用同一套企業午餐流程。
       </div>
     </div>
   </section>
@@ -378,7 +399,7 @@ const StakeholderWordCloud: Page = () => (
   <PageShell label="02 Stakeholders">
     <Eyebrow>Stakeholder Word Cloud</Eyebrow>
     <Title width={1260}>三種顏色，代表三種不同但相互牽動的需求</Title>
-    <div style={{ position: 'relative', height: 660, marginTop: 38, borderRadius: 40, border: `1px solid ${palette.line}`, background: 'rgba(255,255,255,0.035)' }}>
+    <div style={{ position: 'relative', height: 660, marginTop: 38, borderRadius: 40, border: `1px solid ${palette.line}`, background: '#ffffff' }}>
       <CloudWord color={palette.employee} size={56} x={125} y={95}>訂餐不便</CloudWord>
       <CloudWord color={palette.employee} size={42} x={375} y={198} rotate={-5}>截止時間不清楚</CloudWord>
       <CloudWord color={palette.employee} size={34} x={120} y={282} rotate={4}>修改訂單困難</CloudWord>
@@ -442,11 +463,11 @@ const WhatIsTbite: Page = () => (
   <PageShell label="04 Solution">
     <div style={{ display: 'grid', gridTemplateColumns: '1.05fr 0.95fr', gap: 70, alignItems: 'center', minHeight: 820 }}>
       <div>
-        <Eyebrow>What is T-bite?</Eyebrow>
-        <Title width={960}>T-bite 是企業訂餐的多方協作平台</Title>
+        <Eyebrow>What is T-Bite?</Eyebrow>
+        <Title width={960}>T-Bite 是企業訂餐的多方協作平台</Title>
         <Lead width={900}>它連接員工、外部餐廳與企業福委會，不只是訂便當，而是管理訂餐、供應、取餐驗證與對帳的完整 workflow。</Lead>
       </div>
-      <div style={{ borderRadius: 44, border: `1px solid ${palette.line}`, background: 'rgba(255,255,255,0.045)', padding: 44 }}>
+      <div style={{ borderRadius: 44, border: `1px solid ${palette.line}`, background: '#ffffff', padding: 44 }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
           <Card title="員工入口" body="訂餐、查詢、取餐" color={palette.employee} />
           <Card title="廠商入口" body="菜單、產能、履約" color={palette.vendor} />
@@ -478,9 +499,9 @@ const RequirementMapping: Page = () => (
     <Eyebrow>Requirement-to-Feature Mapping</Eyebrow>
     <Title>每個 feature 都回應一個具體營運問題</Title>
     <div style={{ marginTop: 56, display: 'grid', gridTemplateColumns: '0.85fr 1fr 1.15fr', gap: 14 }}>
-      <MiniCell tone="#16233a" color={palette.cyan}>Problem</MiniCell>
-      <MiniCell tone="#16233a" color={palette.cyan}>Feature</MiniCell>
-      <MiniCell tone="#16233a" color={palette.cyan}>Implementation</MiniCell>
+      <MiniCell tone="#f1f5f9" color={palette.cyan}>Problem</MiniCell>
+      <MiniCell tone="#f1f5f9" color={palette.cyan}>Feature</MiniCell>
+      <MiniCell tone="#f1f5f9" color={palette.cyan}>Implementation</MiniCell>
       <MiniCell>選擇有限</MiniCell><MiniCell>多商家菜單</MiniCell><MiniCell>Employee Portal 顯示餐廳、餐點與可訂狀態</MiniCell>
       <MiniCell>供應量不穩</MiniCell><MiniCell>每日供應上限</MiniCell><MiniCell>Vendor menu item capacity / cutoff 控制</MiniCell>
       <MiniCell>取餐爭議</MiniCell><MiniCell>取餐驗證</MiniCell><MiniCell>QR code 或員工 ID 建立 pickup record</MiniCell>
@@ -540,7 +561,7 @@ const DemandCapacity: Page = () => (
         <Card title="Peak Request Pressure ≈ Users near Cutoff × Action Frequency" color={palette.amber} />
         <Card title="Delivery Window Load = Meals per Site / Available Delivery Time" color={palette.blue} />
       </div>
-      <div style={{ borderRadius: 38, background: 'rgba(255,255,255,0.055)', border: `1px solid ${palette.line}`, padding: 42 }}>
+      <div style={{ borderRadius: 38, background: '#ffffff', border: `1px solid ${palette.line}`, padding: 42 }}>
         <div style={{ fontSize: 38, fontWeight: 850 }}>設計影響</div>
         <ul style={{ margin: '30px 0 0', paddingLeft: 32, color: palette.soft, fontSize: 30, lineHeight: 1.55 }}>
           <li>供應上限避免超賣與備餐失準</li>
@@ -575,10 +596,10 @@ const TestingValidation: Page = () => (
     <Eyebrow>Testing & Validation</Eyebrow>
     <Title>測試重點放在跨角色情境是否能走完</Title>
     <div style={{ marginTop: 56, display: 'grid', gridTemplateColumns: '0.85fr 1fr 1.15fr 0.65fr', gap: 14 }}>
-      <MiniCell tone="#16233a" color={palette.cyan}>Test Type</MiniCell>
-      <MiniCell tone="#16233a" color={palette.cyan}>Scenario</MiniCell>
-      <MiniCell tone="#16233a" color={palette.cyan}>Validation</MiniCell>
-      <MiniCell tone="#16233a" color={palette.cyan}>Role</MiniCell>
+      <MiniCell tone="#f1f5f9" color={palette.cyan}>Test Type</MiniCell>
+      <MiniCell tone="#f1f5f9" color={palette.cyan}>Scenario</MiniCell>
+      <MiniCell tone="#f1f5f9" color={palette.cyan}>Validation</MiniCell>
+      <MiniCell tone="#f1f5f9" color={palette.cyan}>Role</MiniCell>
       <MiniCell>Functional</MiniCell><MiniCell>新增餐點與供應上限</MiniCell><MiniCell>資料可被員工入口查詢</MiniCell><MiniCell>Vendor</MiniCell>
       <MiniCell>Scenario-based</MiniCell><MiniCell>截止前下訂與修改</MiniCell><MiniCell>訂單狀態符合流程</MiniCell><MiniCell>Employee</MiniCell>
       <MiniCell>Role-based</MiniCell><MiniCell>不同帳號進入不同功能</MiniCell><MiniCell>權限不越界</MiniCell><MiniCell>All</MiniCell>
@@ -597,7 +618,7 @@ const ReliabilityOperations: Page = () => (
       <Card title="月結資料保留" body="訂單與扣款資料可被彙整為 settlement view。" color={palette.admin} />
       <Card title="稽核與權責" body="角色與操作紀錄讓責任邊界更清楚。" color={palette.purple} />
     </div>
-    <Lead width={1420}>相較於聊天訊息與試算表，T-bite 的價值是把營運資料留在同一條可追溯流程中。</Lead>
+    <Lead width={1420}>相較於聊天訊息與試算表，T-Bite 的價值是把營運資料留在同一條可追溯流程中。</Lead>
   </PageShell>
 );
 
@@ -625,8 +646,8 @@ const Conclusion: Page = () => (
     <div style={{ ...glow, width: 900, height: 900, right: -240, top: 60 }} />
     <div style={{ position: 'relative', zIndex: 1, maxWidth: 1420 }}>
       <Eyebrow>Closing</Eyebrow>
-      <h2 style={{ margin: 0, fontFamily: 'var(--osd-font-display)', fontSize: 92, lineHeight: 1.08, letterSpacing: '-0.05em', fontWeight: 900 }}>
-        T-bite is not just a lunch ordering app;
+      <h2 style={{ margin: 0, fontFamily: 'var(--osd-font-display)', fontSize: 92, lineHeight: 1.08, letterSpacing: 0, fontWeight: 900 }}>
+        T-Bite is not just a lunch ordering app;
         <br />
         it is a cloud-native workflow system for enterprise meal coordination.
       </h2>
@@ -641,7 +662,8 @@ const Conclusion: Page = () => (
 );
 
 export const meta: SlideMeta = {
-  title: 'T-bite',
+  title: 'T-Bite',
+  theme: 't-bite-enterprise',
 };
 
 export default [
