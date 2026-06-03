@@ -1,11 +1,13 @@
 # T-bite Presentation
 
-這個 repo 是 **T-bite** 的 open-slide 簡報專案，用於 cloud-native software engineering 課程期末專題報告。
+這個 repo 是 **T-bite** 的期末簡報資料整理處；原先以 open-slide 製作，最後正式報告改用 Google Slides 手工完成。
 
 - 簡報主題：T-bite — Enterprise Corporate Catering System
 - 情境：TSMC / 大型企業廠區訂餐流程
 - 報告時間：正式報告約 10–12 分鐘，Q&A 約 3–5 分鐘
-- 主要 deck：`slides/t-bite/index.tsx`
+- 最終版簡報：[`exports/t-bite-final-google-slides.pdf`](exports/t-bite-final-google-slides.pdf)
+- HackMD 摘要備份：[`docs/t-bite-hackmd-summary.md`](docs/t-bite-hackmd-summary.md)
+- open-slide 草稿 deck：`slides/t-bite/index.tsx`
 - 主系統 repo：<https://github.com/Agentic-Build/corporate-catering-system>
 
 ## 專案目的
